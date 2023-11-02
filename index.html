@@ -292,6 +292,204 @@
     #finaly는 무조건 마지막에 처리되는 명령
     #except 문으로 오류 컨트롤
     #라이브러리 함수는 라이브러리에 있는 것을 import 후 사용하는 것
+
+
+
+    
+#재귀함수 사용법 (재귀함수란 스스로를 호출하는 함수)
+
+# def addNumber(num):
+#     if(num < 2):
+#         return 1
+#     else:
+#         return num + addNumber(num-1)
+
+# print(addNumber(100))
+
+
+
+#파이썬 3개의 매개변수 중 기본값을 2개 설정 하고, 결과는 모두 6이 나오는 코드
+
+# def myFunc(p1=1, p2=2, p3=3):
+#     ret = p1 + p2 + p3
+#     return ret
+
+# print("매개변수 없이 호출 ==>" , myFunc())
+# print("매개변수가 1개로 호출 ==>" , myFunc(1))
+# print("매개변수가 2개로 호출 ==>" , myFunc(1, 2))
+# print("매개변수가 3개로 호출 ==>" , myFunc(1, 2, 3))
+
+#해설
+#위의 코드에서 myFunc() 함수는 p1, p2, p3 3개의 매개변수를 가지고 있습니다.
+# p1과 p2 매개변수에 기본값으로 각각 1과 2가 할당되어 있습니다.
+# 따라서 myFunc()를 호출하면 기본값이 사용되어 결과로 6이 출력됩니다.
+
+
+# 함수의 매개변수와 관련된 설명입니다. 거리가 먼 것을 모두 고르세요.
+# 1. 반환값은 반드시 1개 이상 있어야 한다
+# 2. 반환값은 2개일 수도 있다.
+# 3. 반환값이 2개일 경우, 두 반환값의 형식은 동일해야 한다.
+# 4. 반환값이 3개일 경우, 내부적으로 리스트로 묶여서 반환된다
+# 5. 반환값의 개수와 매개변수의 개수는 연관이 없다.
+
+# 거리가 먼 설명은 다음과 같습니다:
+
+# 반환값은 반드시 1개 이상 있어야 한다.
+# 반환값이 2개일 경우, 두 반환값의 형식은 동일해야 한다.
+# 반환값이 3개일 경우, 내부적으로 리스트로 묶여서 반환된다.
+# 이 설명들은 매개변수와는 직접적인 연관이 없으므로, 거리가 멀다고 볼 수 있습니다. 매개변수와 반환값은 독립적인 요소로 간주될 수 있습니다.
+
+
+
+#--------------------------------
+
+#9장 self study 9-3
+#*args는 파라미터 개수 상관 없이 입력 받을 때 사용
+
+## 함수 선언 부분 ##
+# def para_func(*args):
+#     result = 0
+#     for num in args :
+#         result = result + num
+#     return result
+
+# ## 전역 변수 선언 부분 ##
+# hap = 0
+
+# ## 메인 코드 부분 ##
+# hap = para_func(10, 20 )
+# print("매개변수가 2개인 함수를 호출한 결과 ==> %d" % hap)
+# hap = para_func(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+# print("매개변수가 10개인 함수를 호출한 결과 ==> %d" % hap)
+
+
+
+
+#9장 self study 9-2
+
+## 함수 선언 부분 ##
+# def calc(v1, v2, op) :
+#     result = 0
+#     if op == '+' :
+#         result = v1 + v2
+#     elif op == '-' :
+#         result = v1 - v2
+#     elif op == '*' :
+#         result = v1 * v2
+#     elif op == '/' :
+#         result = v1 / v2
+#     elif op == '**' :
+#         result = v1 ** v2
+
+#     return result
+
+# ## 전역 변수 선언 부분 ##
+# res = 0
+# var1, var2, oper = 0, 0, ""
+
+# ## 메인 코드 부분 ##
+# var1 = int(input("첫 번째 수를 입력하세요 : "))
+# oper = input("계산을 입력하세요(+, -, *, /) : ")
+# var2 = int(input("두 번째 수를 입력하세요 : "))
+
+# if var2 == 0 :
+#     print("0으로는 나누면 안 됩니다.ㅠㅠ")
+
+# else :
+#     res = calc(var1, var2, oper)
+#     print("## 계산기 : %d %s %d = %d" % (var1, oper, var2, res))
+
+
+#--------------------------------
+
+#9장 self study 9-1
+
+## 변수 선언 부분 ## 
+# coffee = 0
+
+# ## 함수 정의 부분 ## 
+# def coffee_machine(button) :
+#     print("")
+#     print("# 1. (자동으로) 뜨거운 물을 준비한다.");
+#     print("# 2. (자동으로) 종이컵을 준비한다.");
+
+#     if button == 1 :
+#        print("# 3. (자동으로) 아메리카노를 탄다")
+#     elif button == 2 :
+#        print("# 3. (자동으로) 카페라떼를 탄다")
+#     elif button == 3 :
+#        print("# 3. (자동으로) 카푸치노를 탄다")
+#     elif button == 4 :
+#        print("# 3. (자동으로) 에스프레소를 탄다")
+#     else :
+#        print("# 3. (자동으로) 아무거나 탄다\n")
+
+#     print("# 4. (자동으로) 물을 붓는다");
+#     print("# 5. (자동으로) 스푼으로 젓는다");
+#     print()
+
+# ## 메인 코드 부분 ## 
+# coffee = int(input("로제씨, 어떤 커피 드릴까요?(1:아메리카노/2:카페라떼/3:카푸치노/4:에스프레소) "))
+# coffee_machine(coffee)
+# print("로제씨~ 커피 여기 있습니다.\n")
+
+# coffee = int(input("리사씨, 어떤 커피 드릴까요?(1:아메리카노/2:카페라떼/3:카푸치노/4:에스프레소) "))
+# coffee_machine(coffee)
+# print("리사씨~ 커피 여기 있습니다.\n")
+
+# coffee = int(input("지수씨, 어떤 커피 드릴까요?(1:아메리카노/2:카페라떼/3:카푸치노/4:에스프레소) "))
+# coffee_machine(coffee)
+# print("지수씨~ 커피 여기 있습니다.\n")
+
+# coffee = int(input("제니씨, 어떤 커피 드릴까요?(1:아메리카노/2:카페라떼/3:카푸치노/4:에스프레소) "))
+# coffee_machine(coffee)
+# print("제니씨~ 커피 여기 있습니다.\n")
+
+#--------------------------------
+# #9장 연습문제 12번
+
+# 재귀 호출 함수를 이용해서 입력한 10진수를 2진수/8진수/16진수로 변환하는 코드를 작성하세요.
+# 재귀 호출 함수는 2진수로 변환하는 base2(숫자), base8(숫자), base16(숫자) 등 3개 함수를 작성하세요
+
+# def base2(num): 
+#     if num < 2:
+#         return  str(num)
+#     else : 
+#         return base2(num // 2) + str(num % 2)
+
+    
+# def base8(num): 
+#     if num < 8:
+#         return str(num)
+#     else :         
+#         return base8(num // 8) + str(num % 8) 
+      
+        
+# def base16(num):     
+#     convertString="0123456789ABCDEF"
+
+#     if num < 16:
+#         if num < 10:
+#             return str(num)
+#         else:
+#             return convertString[num]
+#     else: 
+#         if (num % 16) < 10:
+#             return base16(num // 16) + str( num % 16)
+#         else:
+#             return base16(num // 16) + convertString[num % 16]        
+        
+    
+# number = int(input('10진수 입력 --> '))   
+
+# print('\n2진수 : ', end = ' ' )
+# print(base2(number))
+
+# print('8진수 : ', end = ' ' )
+# print(base8(number))
+
+# print('16진수 : ', end = ' ' )
+# print(base16(number))
     </pre>
 </body>
 </html>
